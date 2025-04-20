@@ -3,18 +3,18 @@
 
 class count_sort{
 Private:
-  int *unsort_data;
-  int ud_size;
-  int *sort_data;
-  int sd_size;
+  int *data;
   int *count;
-  int c_size;
+  int *key;
+
+  int size;
+  int count_size;
 
   void count();
 
 Public:
-  insert_sort();
-  ~insert_sort();
+  count_sort();
+  ~count_sort();
 
   void read(const std::string& file, int f_size);
   void write(const std::string& file);

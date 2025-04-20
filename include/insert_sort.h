@@ -5,16 +5,12 @@ class insert_sort{
 Private:
   int *data;
   int *count;
-  int *key;
 
   int size;
-  int count_size;
-
-  void count();
 
 Public:
-  count_sort();
-  ~count_sort();
+  insert_sort();
+  ~insert_sort();
 
   void read(const std::string& file, int f_size);
   void write(const std::string& file);
