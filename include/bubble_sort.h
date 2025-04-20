@@ -4,15 +4,12 @@
 class bubble_sort{
 Private:
   int *data;
-  int d_size;
-  int *count;
-  int c_size;
-
+  int size;
 Public:
-  insert_sort();
-  ~insert_sort();
+  bubble_sort();
+  ~bubble_sort();
 
-  void read(const std::string& file, int size);
+  void read(const std::string& file, int f_size);
   void write(const std::string& file);
   void sort();
 

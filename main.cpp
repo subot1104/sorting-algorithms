@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <random>
-//#include "insert_sort.h"
-//#include "count_sort.h"
-//#include "bubble_sort.h"
+#include "insert_sort.h"
+#include "count_sort.h"
+#include "bubble_sort.h"
 
 using namespace std;
 
@@ -43,10 +43,10 @@ void menu(){
       case '2':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          //insert_sort.read(DATA_FILE);
-          //insert_sort.sort();
-          //insert_sort.write(DATA_FILE);
-          cout << "Data successfully sorted" << endl << endl;;
+          insert_sort.read(DATA_FILE);
+          insert_sort.sort();
+          insert_sort.write(DATA_FILE);
+          cout << "Data successfully sorted" << endl << endl;
           is_gen = false;
         }
         else
@@ -58,10 +58,10 @@ void menu(){
       case '3':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          //count_sort.read(DATA_FILE);
-          //count_sort.sort();
-          //count_sort.write(DATA_FILE);
-          cout << "Data successfully sorted" << endl << endl;;
+          count_sort.read(DATA_FILE);
+          count_sort.sort();
+          count_sort.write(DATA_FILE);
+          cout << "Data successfully sorted" << endl << endl;
           is_gen = false;
         }
         else
@@ -72,10 +72,10 @@ void menu(){
       case '4':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          //bubble_sort.read(DATA_FILE);
-          //bubble_sort.sort();
-          //bubble_sort.write(DATA_FILE);
-          cout << "Data successfully sorted" << endl << endl;;
+          bubble_sort.read(DATA_FILE);
+          bubble_sort.sort();
+          bubble_sort.write(DATA_FILE);
+          cout << "Data successfully sorted" << endl << endl;
           is_gen = false;
         }
         else
