@@ -4,6 +4,9 @@
 class bubble_sort{
 Private:
   int *data;
+  int d_size;
+  int *count;
+  int c_size;
 
 Public:
   insert_sort();

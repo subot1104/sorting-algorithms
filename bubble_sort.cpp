@@ -12,10 +12,10 @@ insert_sort::~insert_sort(){
     delete[] data[i];
 }
 
-void insert_sort::read(const string& file, int f_size){
+void insert_sort::read(const string& file, int size){
   if(data == NULL){
     data = new int[size];
-    size = f_size;
+    size = 0;
   }
 
   ifstream unsorted;
@@ -23,6 +23,7 @@ void insert_sort::read(const string& file, int f_size){
 
   for(int i = 0; i < size; i++){
     unsorted >> data[i];
+    size ++;
   }
   unsorted.close(file);
 }
@@ -41,16 +42,5 @@ void insert_sort::write(const string& file){
 }
 
 void insert_sort::sort(){
-  int temp;
-
-  for(int i = 1; i < size; i++){
-    for(int j = i - 1; j >= 0; j--){
-      if(data[i] < data[j]){
-        temp = data[i];
-        data[i] = data[j];
-        data[j] = temp;
-      }
-    }
-  }
-}
+ }
 
