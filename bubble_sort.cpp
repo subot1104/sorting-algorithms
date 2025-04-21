@@ -1,6 +1,7 @@
 #include "bubble_sort.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std:
 
 bubble_sort::bubble_sort(){

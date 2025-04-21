@@ -20,11 +20,15 @@ void menu();
 void gen_rand(string file, int size);
 
 int main(){
+
   menu();
   return 0;
 }
 
 void menu(){
+  insert_sort insert;
+  count_sort count;
+  bubble_sort bubble;
   char choice = '0';
   bool is_gen = false;
   while (choice != 'q'){
@@ -43,9 +47,9 @@ void menu(){
       case '2':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          insert_sort.read(DATA_FILE);
-          insert_sort.sort();
-          insert_sort.write(DATA_FILE);
+          insert.read(DATA_FILE);
+          insert.sort();
+          insert.write(DATA_FILE);
           cout << "Data successfully sorted" << endl << endl;
           is_gen = false;
         }
@@ -58,9 +62,9 @@ void menu(){
       case '3':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          count_sort.read(DATA_FILE);
-          count_sort.sort();
-          count_sort.write(DATA_FILE);
+          count.read(DATA_FILE);
+          count.sort();
+          count.write(DATA_FILE);
           cout << "Data successfully sorted" << endl << endl;
           is_gen = false;
         }
@@ -72,9 +76,9 @@ void menu(){
       case '4':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          bubble_sort.read(DATA_FILE);
-          bubble_sort.sort();
-          bubble_sort.write(DATA_FILE);
+          bubble.read(DATA_FILE);
+          bubble.sort();
+          bubble.write(DATA_FILE);
           cout << "Data successfully sorted" << endl << endl;
           is_gen = false;
         }

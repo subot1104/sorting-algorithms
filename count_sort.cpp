@@ -1,25 +1,27 @@
 #include "count_sort.h"
 #include <iostream>
 #include <fstream>
-using namespace std:
+#include <string>
+using namespace std;
 
 count_sort::count_sort(){
   int *data = NULL;
   int *count = NULL;
   int *key = NULL;
+  size = 0;
+  count_size = 0;
 }
 
 count_sort::~count_sort(){
-  for(int i; i < d_size; i++)
-    delete[] data[i];
-  for(int i; i < c_size; i++)
-    delete[] count[i];
+    delete[] data;
+    delete[] count;
+    delete[] key;
 }
 
-void insert_sort::read(const string& file, int f_size){
+void count_sort::read(const string& file, int f_size){
   if(data == NULL){
-    data = new int[size];
-    size = 0;
+    data = new int[f_size];
+    size = f_size;
   }
 
   ifstream unsorted;
@@ -27,12 +29,11 @@ void insert_sort::read(const string& file, int f_size){
 
   for(int i = 0; i < f_size; i++){
     unsorted >> data[i];
-    size ++;
   }
   unsorted.close(file);
 }
 
-void insert_sort::write(const string& file){
+void count_sort::write(const string& file){
   if(data == NULL)
     cout << "ERROR: no data loaded." << endl;
   else{
@@ -45,7 +46,7 @@ void insert_sort::write(const string& file){
   }
 }
 
-void count_sort::count(){
+void count_sort::count_alg(){
 bool is_unique = true;
 count_size = 0;
 //find out how many unique elements there are
@@ -76,7 +77,7 @@ for (int i = 0; i < size; i++){
 }
 
 void count_sort::sort(){
-  count_sort::count();
+  count_alg();
 
   for(int i = count_size; i >=0; i--){
     while(count[i] != count[i-1]){

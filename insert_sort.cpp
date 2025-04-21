@@ -1,6 +1,7 @@
 #include "insert_sort.h"
 #include <iostream>
 #include <fstream>
+#include <string>
 using namespace std:
 
 insert_sort::insert_sort(){
