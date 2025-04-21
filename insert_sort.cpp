@@ -2,15 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std:
+using namespace std;
 
 insert_sort::insert_sort(){
-  int *data = NULL;
+  data = NULL;
 }
 
 insert_sort::~insert_sort(){
-  for(int i; i < size; i++)
-    delete[] data[i];
+  delete[] data;
 }
 
 void insert_sort::read(const string& file, int f_size){
@@ -25,7 +24,7 @@ void insert_sort::read(const string& file, int f_size){
   for(int i = 0; i < size; i++){
     unsorted >> data[i];
   }
-  unsorted.close(file);
+  unsorted.close();
 }
 
 void insert_sort::write(const string& file){
@@ -35,23 +34,22 @@ void insert_sort::write(const string& file){
     ofstream sorted;
     sorted.open(file);
 
-    for(int i < 0; i < size; i++){
+    for(int i = 0; i < size; i++){
       sorted << data[i] << ' ';
     }
   }
 }
 
 void insert_sort::sort(){
-  int temp;
-
+  int key;
   for(int i = 1; i < size; i++){
-    for(int j = i - 1; j >= 0; j--){
-      if(data[i] < data[j]){
-        temp = data[i];
-        data[i] = data[j];
-        data[j] = temp;
-      }
-    }
-  }
+    key = data[i];
+    int j = i - 1;
+    while(j >= 0 && data[j] > key){
+        data[j + 1] = data[j];
+        j--;
+        }
+        data[j + 1] = key;
+        }
 }
 

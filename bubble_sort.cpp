@@ -2,15 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-using namespace std:
+using namespace std;
 
 bubble_sort::bubble_sort(){
-  int *data = NULL;
+  data = NULL;
 }
 
 bubble_sort::~bubble_sort(){
-  for(int i; i < size; i++)
-    delete[] data[i];
+  delete[] data;
 }
 
 void bubble_sort::read(const string& file, int f_size){
@@ -26,7 +25,7 @@ void bubble_sort::read(const string& file, int f_size){
     unsorted >> data[i];
     size ++;
   }
-  unsorted.close(file);
+  unsorted.close();
 }
 
 void bubble_sort::write(const string& file){
@@ -36,7 +35,7 @@ void bubble_sort::write(const string& file){
     ofstream sorted;
     sorted.open(file);
 
-    for(int i < 0; i < size; i++){
+    for(int i = 0; i < size; i++){
       sorted << data[i] << ' ';
     }
   }
@@ -45,15 +44,16 @@ void bubble_sort::write(const string& file){
 void bubble_sort::sort(){
   bool is_swap = true;
   int temp;
-  while(is_swap)
+  while(is_swap){
     is_swap = false;
-  for(int i = 1; i < size; i++){
-    if(data[i] < data[i-1]){
-      temp = data[i];
-      data[i] = data[i-1];
-      data[i-1] = temp;
-      is_swap = true;
+    for(int i = 1; i < size; i++){
+      if(data[i] < data[i-1]){
+        temp = data[i];
+        data[i] = data[i-1];
+        data[i-1] = temp;
+        is_swap = true;
+      }
     }
   }
- }
+}
 

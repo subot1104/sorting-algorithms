@@ -47,7 +47,7 @@ void menu(){
       case '2':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          insert.read(DATA_FILE);
+          insert.read(DATA_FILE, DATA_SIZE);
           insert.sort();
           insert.write(DATA_FILE);
           cout << "Data successfully sorted" << endl << endl;
@@ -62,7 +62,7 @@ void menu(){
       case '3':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          count.read(DATA_FILE);
+          count.read(DATA_FILE, DATA_SIZE);
           count.sort();
           count.write(DATA_FILE);
           cout << "Data successfully sorted" << endl << endl;
@@ -76,7 +76,7 @@ void menu(){
       case '4':
         if(is_gen){
           cout << "Sorting data..." << endl;
-          bubble.read(DATA_FILE);
+          bubble.read(DATA_FILE, DATA_SIZE);
           bubble.sort();
           bubble.write(DATA_FILE);
           cout << "Data successfully sorted" << endl << endl;
@@ -111,10 +111,10 @@ void gen_rand(string file, int size){
   
   //sets up file stream
   ofstream data;
-  data.open(DATA_FILE, ios::trunc);
+  data.open(file, ios::trunc);
 
   //inserts data into file
-  for(int i = 0; i < DATA_SIZE; i++)
+  for(int i = 0; i < size; i++)
     data << dist(gen) << ' ';
 
   data.close();
