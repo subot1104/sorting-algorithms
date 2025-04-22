@@ -48,34 +48,36 @@ void count_sort::write(const string& file){
 
 void count_sort::count_alg(){
   int max = 0;
-  //finds out the max value element since we are ordering numbers
-  for(int i = 0; i < size; i++){
-    if(data[i] > max)
-      max = data[i];
-  }
-  count_size = max;
-//creates space for new elements
-  count = new int[count_size];
-  for (int i = 0; i < count_size; i++)
-    count[i] = 0;
-  //assuming that that all 1000 numbers are generated. the count should handle itself though
-  key = new int[count_size];
-  for (int i = 0; i < count_size; i++)
-    key[i] = i;
-  //sets up the count for sorting
-  for(int i = 0; i < size; i++)
-    count[data[i]]++;
-  for(int i = 1; i < size; i++)
-    count[i] = count[i] + count[i-1];
+  //finds max value and sets it to the size of the count
+    for(int i = 0; i < size; i++){
+      if(data[i] > max)
+        max = data[i];
+    }
+    count_size = max + 1;
+    count = new int[count_size];
+
+    //0 initialization
+    for(int i = 0; i < count_size; i++)
+      count[i] = 0;
+    
+    //count each number
+    for (int i = 0; i < size; i++)
+        count[data[i]]++;  // data[i] must be positive and less than count_size;
+    
+    //does the accumulative count
+    for (int i = 1; i < count_size; i++)
+        count[i] += count[i-1];
 }
 void count_sort::sort(){
   count_alg();
+  
+  int *output = new int[size];
 
-  for(int i = count_size; i >=0; i--){
-    while(count[i] != count[i-1]){
-      data[count[i]] = key[i];
-      count[i]--;
-    }
+  for(int i = size - 1; i >= 0; i--){
+     output[count[data[i]]-1] = data[i];
+     count[data[i]]--;
   }
+  delete[] data;
+  data = output;
 }
 
