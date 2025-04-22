@@ -8,3 +8,5 @@ How to use:
 3: Sorts using the counting sort algorithm.
 4: Sorts using the bubble sort algorithm.
 q: quits the program.
+
+Overall, the count sort was the quickest sorting algorithm by a long shot with a time of about 200 microseconds on average. This caught me off guard, especially with how much data allocation I was doing with the implementation. Both insertion sort and bubble sort were very slow in comparison, taking around 50,000 microseconds and 200,000 microseconds respectively.
