@@ -39,7 +39,10 @@ void menu(){
         cout << "Generating Data..." << endl;
         gen_rand(DATA_FILE, DATA_SIZE);
         is_gen = true;
-        cout << "Data is successfully generated" << endl << endl;
+        cout << "Data is successfully generated" << endl;
+        cout << "Please check out the data.txt folder. (dont close the program)" << endl;
+        cin.get();
+        cin.get();
         choice = '0';
         break;
 
@@ -50,7 +53,10 @@ void menu(){
           insert.read(DATA_FILE, DATA_SIZE);
           insert.sort();
           insert.write(DATA_FILE);
-          cout << "Data successfully sorted" << endl << endl;
+          cout << "Data successfully sorted" << endl;
+          cout << "Please check out the data.txt file." << endl;
+          cin.get();
+          cin.get();
           is_gen = false;
         }
         else
@@ -65,7 +71,10 @@ void menu(){
           count.read(DATA_FILE, DATA_SIZE);
           count.sort();
           count.write(DATA_FILE);
-          cout << "Data successfully sorted" << endl << endl;
+          cout << "Data successfully sorted" << endl;
+          cout << "Please check out the data.txt file." << endl;
+          cin.get();
+          cin.get();
           is_gen = false;
         }
         else
@@ -79,7 +88,10 @@ void menu(){
           bubble.read(DATA_FILE, DATA_SIZE);
           bubble.sort();
           bubble.write(DATA_FILE);
-          cout << "Data successfully sorted" << endl << endl;
+          cout << "Data successfully sorted" << endl;
+          cout << "PLease check out the data.txt file." << endl;
+          cin.get();
+          cin.get();
           is_gen = false;
         }
         else
