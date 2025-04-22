@@ -20,4 +20,4 @@ bubble_sort.o: bubble_sort.cpp bubble_sort.h
 	$(CC) $(CFLAGS) -c bubble_sort.cpp
 
 clean:
-	$(RM) $(TARGET) *.o *~
+	$(RM) $(TARGET) *.o *~ data.txt

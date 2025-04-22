@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <random>
+#include <chrono>
 #include "insert_sort.h"
 #include "count_sort.h"
 #include "bubble_sort.h"
@@ -51,7 +52,14 @@ void menu(){
         if(is_gen){
           cout << "Sorting data..." << endl;
           insert.read(DATA_FILE, DATA_SIZE);
+
+          auto start = chrono::high_resolution_clock::now();
           insert.sort();
+          auto end = chrono::high_resolution_clock::now();
+        
+          auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+          cout << "Insertion sort completed in " << duration.count() << " microseconds" << endl;
+
           insert.write(DATA_FILE);
           cout << "Data successfully sorted" << endl;
           cout << "Please check out the data.txt file." << endl;
@@ -69,7 +77,14 @@ void menu(){
         if(is_gen){
           cout << "Sorting data..." << endl;
           count.read(DATA_FILE, DATA_SIZE);
+
+          auto start = chrono::high_resolution_clock::now();
           count.sort();
+          auto end = chrono::high_resolution_clock::now();
+        
+          auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+          cout << "Counting sort completed in " << duration.count() << " microseconds" << endl;
+
           count.write(DATA_FILE);
           cout << "Data successfully sorted" << endl;
           cout << "Please check out the data.txt file." << endl;
@@ -86,10 +101,17 @@ void menu(){
         if(is_gen){
           cout << "Sorting data..." << endl;
           bubble.read(DATA_FILE, DATA_SIZE);
+
+          auto start = chrono::high_resolution_clock::now();
           bubble.sort();
+          auto end = chrono::high_resolution_clock::now();
+        
+          auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+          cout << "Bubble sort completed in " << duration.count() << " microseconds" << endl;
+
           bubble.write(DATA_FILE);
           cout << "Data successfully sorted" << endl;
-          cout << "PLease check out the data.txt file." << endl;
+          cout << "Please check out the data.txt file." << endl;
           cin.get();
           cin.get();
           is_gen = false;
